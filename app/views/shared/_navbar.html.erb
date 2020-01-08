@@ -15,6 +15,26 @@
 
     <div class="collapse navbar-collapse" id="navbarMain">
       <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+        <li class="nav-item">
+          <%= link_to locations_path, class: "nav-link" do %>
+            Locations
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to employees_path, class: "nav-link" do %>
+            Employees
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to departments_path, class: "nav-link" do %>
+            Departments
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to notifications_path, class: "nav-link" do %>
+            Exports
+          <% end %>
+        </li>
       </ul>
 
       <ul class="navbar-nav">
