@@ -1,0 +1,24 @@
+<div class="page-header">
+  <%= link_to departments_path, class: 'btn btn-default' do %>
+    All Departments
+  <% end %>
+  <%= link_to edit_department_path(@department), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show department</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Country:</dt>
+  <dd><%= @department.country %></dd>
+
+  <dt>Name:</dt>
+  <dd><%= @department.name %></dd>
+
+  <dt>Code:</dt>
+  <dd><%= @department.code %></dd>
+
+  <dt>Source code:</dt>
+  <dd><%= @department.source_code %></dd>
+
+</dl>

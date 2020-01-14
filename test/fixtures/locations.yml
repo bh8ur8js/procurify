@@ -1,0 +1,35 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  procurify_id: MyString
+  location_type: MyString
+  status: MyString
+  business: MyString
+  business_unit: MyString
+  internal_id: MyString
+  description: MyString
+  cost_centre: MyString
+  address: MyString
+  city: MyString
+  state: MyString
+  post_code: MyString
+  country: MyString
+  phone: MyString
+  fax: MyString
+
+two:
+  procurify_id: MyString
+  location_type: MyString
+  status: MyString
+  business: MyString
+  business_unit: MyString
+  internal_id: MyString
+  description: MyString
+  cost_centre: MyString
+  address: MyString
+  city: MyString
+  state: MyString
+  post_code: MyString
+  country: MyString
+  phone: MyString
+  fax: MyString

@@ -1,0 +1,143 @@
+
+<div class="container">
+  <%= form_for employee do |form| %>
+  <div class="row">
+    <div class = "col">
+      <div class="form-group">
+        <% if employee.persisted? %>
+          <div class="float-right">
+            <%= link_to 'Destroy', employee, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+          </div>
+        <% end %>
+
+        <%= form.submit class: 'btn btn-primary' %>
+
+        <% if employee.persisted? %>
+          <%= link_to "Cancel", employee, class: "btn btn-link" %>
+        <% else %>
+          <%= link_to "Cancel", employees_path, class: "btn btn-link" %>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+
+        <% if employee.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+            <ul>
+            <% employee.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="form-group">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name, class:'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :email %>
+    <%= form.text_field :email, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :auth_level %>
+    <%= form.number_field :auth_level, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :auth_amount %>
+    <%= form.number_field :auth_amount, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :phone %>
+    <%= form.text_field :phone, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :role %>
+    <%= form.text_field :role, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :job_title %>
+    <%= form.text_field :job_title, class: 'form-control' %>
+  </div>
+
+        </div>
+
+<div class="col">
+  <div class="form-group">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th></th>
+        <th>Departments</th>
+      </tr>
+      </thead>
+      <tbody>
+         <%= form.collection_check_boxes :department_ids, Department.all, :id, :name do | b |  %>
+         <tr>
+           <td>
+             <%= b.label(class: "check_box") do %>
+               <%= b.check_box(class: "check_box") %>
+               </td>
+               <td>
+                 <%= b.object.name %>
+               </td>
+             <% end %>
+             </tr>
+      <% end %>
+      </tbody>
+      </table>
+
+  </div>
+
+</div>
+
+    <div class="col">
+    <div class="form-group">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+        <th></th>
+        <th>Locations</th>
+        </tr>
+        </thead>
+        <tbody>
+        <%= form.collection_check_boxes :location_ids, Location.all, :id, :procurify_id  do | b | %>
+          <tr>
+            <td>
+            <%= b.label(class: "check_box") do %>
+                <%= b.check_box(class: "check_box") %>
+              </td>
+                <td>
+                <%= b.object.procurify_id + ' ' + b.object.description %>
+                </td>
+            <% end %>
+          </tr>
+        <% end %>
+        </tbody>
+          </table>
+
+        <div>
+        </div>
+</div>
+    </div>
+        </div>
+
+
+      <% end %>
+  </div>

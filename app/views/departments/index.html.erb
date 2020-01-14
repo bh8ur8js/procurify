@@ -1,0 +1,47 @@
+
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Departments</h1>
+  </div>
+
+  <div class="col-sm-6 text-right">
+  <%= link_to new_department_path, class: 'btn btn-primary' do %>
+    Add New Department
+  <% end %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+    
+        <th>Name</th>
+    
+
+            <th>Country</th>
+            <th>Code</th>
+            <th>Source code</th>
+            
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @departments.each do |department| %>
+        <%= content_tag :tr, id: dom_id(department), class: dom_class(department) do %>
+          
+            <td><%= link_to department.name, department %></td>
+          
+
+                      <td><%= department.country %></td>
+                      <td><%= department.code %></td>
+                      <td><%= department.source_code %></td>
+          
+          
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

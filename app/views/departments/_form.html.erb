@@ -1,0 +1,49 @@
+<%= form_with(model: department, local: true) do |form| %>
+  <% if department.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(department.errors.count, "error") %> prohibited this department from being saved:</h2>
+
+      <ul>
+      <% department.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :country %>
+    <%= form.text_field :country, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :code %>
+    <%= form.text_field :code, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :source_code %>
+    <%= form.text_field :source_code, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if department.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', department, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if department.persisted? %>
+      <%= link_to "Cancel", department, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", departments_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

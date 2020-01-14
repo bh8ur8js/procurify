@@ -1,0 +1,58 @@
+
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Locations</h1>
+  </div>
+
+  <div class="col-sm-6 text-right">
+  <%= link_to new_location_path, class: 'btn btn-primary' do %>
+    Add New Location
+  <% end %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+    
+
+            <th>Procurify ID</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Business</th>
+            <th>Business unit</th>
+            <th>Description</th>
+            <th>Store Requesters</th>
+
+            
+          <th></th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @locations.each do |location| %>
+        <%= content_tag :tr, id: dom_id(location), class: dom_class(location) do %>
+          
+
+                      <td><%= location.procurify_id %></td>
+                      <td><%= location.location_type %></td>
+                      <td><%= location.status %></td>
+                      <td><%= location.business %></td>
+                      <td><%= location.business_unit %></td>
+                      <td><%= location.description.truncate(15) %></td>
+                      <td><% location.employees.where(role: 'SM').each do | requester | %>
+                              <%= requester.email %> <BR>
+                          <% end %>
+                      </td>
+          
+            <td><%= link_to 'Show', location %></td>
+          
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

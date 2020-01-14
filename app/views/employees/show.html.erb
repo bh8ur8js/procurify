@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <%= link_to employees_path, class: 'btn btn-default' do %>
+        All Employees
+      <% end %>
+      <%= link_to edit_employee_path(@employee), class: 'btn btn-primary' do %>
+        Edit
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <dt>First name:</dt>
+      <dd><%= @employee.first_name %></dd>
+
+      <dt>Last name:</dt>
+      <dd><%= @employee.last_name %></dd>
+
+      <dt>Email:</dt>
+      <dd><%= @employee.email %></dd>
+
+      <dt>Auth level:</dt>
+      <dd><%= @employee.auth_level %></dd>
+
+      <dt>Auth amount:</dt>
+      <dd><%= @employee.auth_amount %></dd>
+
+      <dt>Phone:</dt>
+      <dd><%= @employee.phone %></dd>
+
+      <dt>Role:</dt>
+      <dd><%= @employee.role %></dd>
+
+      <dt>Job title:</dt>
+      <dd><%= @employee.job_title %></dd>
+    </div>
+    <div class="col">
+      <table class="table table-striped">
+        <thead>
+        <th>Departments</th>
+        </thead>
+        <tbody>
+        <% @employee.departments.each do | department | %>
+          <tr><td> <%= department.name %> </td></tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col">
+      <table class="table table-striped">
+        <thead>
+        <th>Locations</th>
+        </thead>
+        <tbody>
+        <% @employee.locations.each do | location | %>
+          <tr><td> <%= link_to location.procurify_id + ' ' + location.description, location_path(location) %> </td></tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+</div>
