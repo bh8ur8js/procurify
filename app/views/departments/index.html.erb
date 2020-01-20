@@ -32,9 +32,7 @@
       <% @departments.each do |department| %>
         <%= content_tag :tr, id: dom_id(department), class: dom_class(department) do %>
           
-            <td><%= link_to department.name, department %></td>
-          
-
+                     <td><%= link_to department.name, department %></td>
                       <td><%= department.country %></td>
                       <td><%= department.code %></td>
                       <td><%= department.source_code %></td>

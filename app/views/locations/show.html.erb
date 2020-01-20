@@ -52,20 +52,32 @@
 
 </dl>
     </div>
-      <div class="col">
+    <div class="col">
+      <table class="table table-striped">
+        <thead>
+        <tr><th>Enabled Departments</th></tr>
+
+        </thead>
+        <tbody>
+        <% @location.departments.each do | department | %>
+          <tr><td> <%= department.name  %> </td></tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col">
         <table class="table table-striped">
           <thead>
-          <tr><th colspan="4">Approval</th></tr>
+          <tr><th colspan="3">Approval</th></tr>
           <tr><th>Name</th>
           <th>Level</th>
-          <th>Amount</th>
           <th>Job Title</th></tr>
           </thead>
           <tbody>
           <% @location.employees.order(:auth_level).each do | employee | %>
             <tr><td> <%= link_to employee.first_name+' '+employee.last_name, employee_path(employee)  %> </td>
               <td> <%= employee.auth_level %> </td>
-            <td> <%= employee.auth_amount %> </td>
+
               <td> <%= employee.job_title %> </td></tr>
           <% end %>
           </tbody>

@@ -1,2 +1,37 @@
-<h1>Welcome to Jumpstart!</h1>
-<p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+<div class="row">
+  <div class="col">
+    <div class="card">
+      <div class="card-header">
+        Stores
+      </div>
+      <div class="card-body">
+        <h1> <%= link_to Location.stores.count, locations_path %></h1>
+      </div>
+    </div>
+
+  </div>
+  <div class="col">
+    <div class="card">
+      <div class="card-header">
+        Warehouses
+      </div>
+      <div class="card-body">
+        <h1> <%= link_to Location.warehouses.count, locations_path%></h1>
+      </div>
+    </div>
+
+  </div>
+  <div class="col">
+    <div class="card">
+      <div class="card-header">
+        Offices
+      </div>
+      <div class="card-body">
+        <h1> <%= link_to Location.offices.count, locations_path%></h1>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>

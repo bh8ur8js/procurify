@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_08_152320) do
+ActiveRecord::Schema.define(version: 2020_01_14_143437) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2020_01_08_152320) do
     t.bigint "location_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["employee_id", "location_id"], name: "employee_locations_employee_id_location_id_uindex", unique: true
     t.index ["employee_id"], name: "index_employee_locations_on_employee_id"
     t.index ["location_id"], name: "index_employee_locations_on_location_id"
   end
@@ -62,6 +63,7 @@ ActiveRecord::Schema.define(version: 2020_01_08_152320) do
     t.string "job_title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "employees_email_uindex", unique: true
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -73,6 +75,15 @@ ActiveRecord::Schema.define(version: 2020_01_08_152320) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "location_departments", force: :cascade do |t|
+    t.bigint "location_id", null: false
+    t.bigint "department_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["department_id"], name: "index_location_departments_on_department_id"
+    t.index ["location_id"], name: "index_location_departments_on_location_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -140,5 +151,7 @@ ActiveRecord::Schema.define(version: 2020_01_08_152320) do
   add_foreign_key "employee_departments", "employees"
   add_foreign_key "employee_locations", "employees"
   add_foreign_key "employee_locations", "locations"
+  add_foreign_key "location_departments", "departments"
+  add_foreign_key "location_departments", "locations"
   add_foreign_key "services", "users"
 end

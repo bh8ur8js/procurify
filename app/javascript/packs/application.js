@@ -8,9 +8,14 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("local-time").start()
+require("jquery")
+require( 'jszip' )
+require("datatables.net-bs4")
 
 window.Rails = Rails
 
+import $ from 'jquery';
+global.$ = jQuery;
 import 'bootstrap'
 import 'data-confirm-modal'
 

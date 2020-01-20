@@ -1,109 +1,146 @@
-<%= form_with(model: location, local: true) do |form| %>
-  <% if location.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(location.errors.count, "error") %> prohibited this location from being saved:</h2>
+<div class="container">
+  <%= form_for location do |form| %>
+    <div class="row">
+      <div class="col">
+      <div class="form-group">
+        <% if location.persisted? %>
+          <div class="float-right">
+            <%= link_to 'Destroy', location, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+          </div>
+        <% end %>
 
-      <ul>
-      <% location.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <%= form.submit class: 'btn btn-primary' %>
+
+        <% if location.persisted? %>
+          <%= link_to "Cancel", location, class: "btn btn-link" %>
+        <% else %>
+          <%= link_to "Cancel", locations_path, class: "btn btn-link" %>
+        <% end %>
     </div>
-  <% end %>
 
-  <div class="form-group">
-    <%= form.label :procurify_id %>
-    <%= form.text_field :procurify_id, class: 'form-control' %>
-  </div>
+    <% if location.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
 
-  <div class="form-inline-group">
-    <%= form.label :location_type %>
-    <%= form.radio_button :location_type, 'store', class: 'form-inline-control' %>
-    <%= label :location_type, 'Store' %>
-    <%= form.radio_button :location_type, 'warehouse',class: 'form-inline-control' %>
-    <%= label :location_type, 'warehouse' %>
-    <%= form.radio_button :location_type, 'office', class: 'form-inline-control' %>
-    <%= label :location_type, 'office' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :status %>
-    <%= form.text_field :status, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :business %>
-    <%= form.text_field :business, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :business_unit %>
-    <%= form.text_field :business_unit, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :internal_id %>
-    <%= form.text_field :internal_id, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :description %>
-    <%= form.text_field :description, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :cost_centre %>
-    <%= form.text_field :cost_centre, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :address %>
-    <%= form.text_field :address, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :city %>
-    <%= form.text_field :city, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :state %>
-    <%= form.text_field :state, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :post_code %>
-    <%= form.text_field :post_code, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :country %>
-    <%= form.text_field :country, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :phone %>
-    <%= form.text_field :phone, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :fax %>
-    <%= form.text_field :fax, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <% if location.persisted? %>
-      <div class="float-right">
-        <%= link_to 'Destroy', location, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+        <ul>
+          <% location.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
       </div>
     <% end %>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <%= form.label :procurify_id %>
+        <%= form.text_field :procurify_id, class: 'form-control' %>
+      </div>
 
-    <%= form.submit class: 'btn btn-primary' %>
+      <div class="form-inline-group">
+        <%= form.label :location_type %>
+        <%= form.radio_button :location_type, 'store', class: 'form-inline-control' %>
+        <%= label :location_type, 'Store' %>
+        <%= form.radio_button :location_type, 'warehouse',class: 'form-inline-control' %>
+        <%= label :location_type, 'warehouse' %>
+        <%= form.radio_button :location_type, 'office', class: 'form-inline-control' %>
+        <%= label :location_type, 'office' %>
+      </div>
 
-    <% if location.persisted? %>
-      <%= link_to "Cancel", location, class: "btn btn-link" %>
-    <% else %>
-      <%= link_to "Cancel", locations_path, class: "btn btn-link" %>
-    <% end %>
+      <div class="form-group">
+        <%= form.label :status %>
+        <%= form.text_field :status, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :business %>
+        <%= form.text_field :business, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :business_unit %>
+        <%= form.text_field :business_unit, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :internal_id %>
+        <%= form.text_field :internal_id, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :description %>
+        <%= form.text_field :description, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :cost_centre %>
+        <%= form.text_field :cost_centre, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :address %>
+        <%= form.text_field :address, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :city %>
+        <%= form.text_field :city, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :state %>
+        <%= form.text_field :state, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :post_code %>
+        <%= form.text_field :post_code, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :country %>
+        <%= form.text_field :country, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :phone %>
+        <%= form.text_field :phone, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :fax %>
+        <%= form.text_field :fax, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th></th>
+            <th>Location Departments</th>
+          </tr>
+          </thead>
+          <tbody>
+          <%= form.collection_check_boxes :department_ids, Department.all, :id, :name do | b |  %>
+            <tr>
+              <td>
+                <%= b.label(class: "check_box") do %>
+                  <%= b.check_box(class: "check_box") %>
+                  </td>
+                  <td>
+                    <%= b.object.name %>
+                  </td>
+                <% end %>
+                </tr>
+          <% end %>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
   </div>
-<% end %>
+  <%end %>
+</div>
+

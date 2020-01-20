@@ -4,7 +4,9 @@ class EmployeesController < ApplicationController
   # GET /employees
   # GET /employees.json
   def index
+
     @employees = Employee.all
+
   end
 
   # GET /employees/1
@@ -54,6 +56,7 @@ class EmployeesController < ApplicationController
   # DELETE /employees/1
   # DELETE /employees/1.json
   def destroy
+    EmployeeDepartment.destroy(EmployeeDepartment.where(employee_id: @employee).pluck(:id))
     @employee.destroy
     respond_to do |format|
       format.html { redirect_to employees_url, notice: 'Employee was successfully destroyed.' }

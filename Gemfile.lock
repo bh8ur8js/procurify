@@ -129,6 +129,8 @@ GEM
     faraday (1.0.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.11.3)
+    flag-icons-rails (3.1.0)
+      sass (~> 3.2)
     font-awesome-sass (5.12.0)
       sassc (>= 1.11)
     friendly_id (5.3.0)
@@ -259,6 +261,11 @@ GEM
       railties (>= 5.0)
     ruby_dep (1.5.0)
     rubyzip (2.0.0)
+    sass (3.7.4)
+      sass-listen (~> 4.0.0)
+    sass-listen (4.0.0)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.2.1)
@@ -335,6 +342,7 @@ DEPENDENCIES
   devise (~> 4.7, >= 4.7.0)
   devise-bootstrapped!
   devise_masquerade (~> 1.2)
+  flag-icons-rails
   font-awesome-sass (~> 5.6, >= 5.6.1)
   friendly_id (~> 5.2, >= 5.2.5)
   gravatar_image_tag!
