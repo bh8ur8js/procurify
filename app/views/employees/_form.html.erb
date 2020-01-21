@@ -100,7 +100,7 @@
               <thead>
               <tr>
                 <th></th>
-                <th>Authorised Departments</th>
+                <th colspan="2">Authorised Departments</th>
               </tr>
               </thead>
               <tbody>
@@ -111,8 +111,9 @@
                       <%= b.check_box(class: "check_box") %>
                       </td>
                       <td>
-                        <%= b.object.name %>(<%= b.object.code %>)
+                        <%= b.object.name %>
                       </td>
+                      <td>(<%= b.object.code %>)</td>
                     <% end %>
                     </tr>
               <% end %>
