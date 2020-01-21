@@ -55,12 +55,14 @@
     <div class="col">
       <table class="table table-striped">
         <thead>
-        <tr><th>Enabled Departments</th></tr>
+        <tr><th colspan="2">Enabled Departments</th></tr>
 
         </thead>
         <tbody>
         <% @location.departments.each do | department | %>
-          <tr><td> <%= department.name  %> </td></tr>
+          <tr><td> <%= department.name  %> </td>
+            <td> <%= department.code  %> </td>
+          </tr>
         <% end %>
         </tbody>
       </table>
