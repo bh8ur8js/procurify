@@ -13,4 +13,7 @@ class Employee < ApplicationRecord
   scope :l6, -> {where("auth_level=6")}
   scope :l7, -> {where("auth_level=7")}
 
+  def has_department?(department_id)
+    !self.departments.where(id: department_id).empty?
+  end
 end
