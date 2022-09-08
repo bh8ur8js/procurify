@@ -12,7 +12,7 @@
     "datatables.net-buttons-bs4": "^1.6.1",
     "expose-loader": "^0.7.5",
     "jquery": "^3.4.1",
-    "jszip": "^3.2.2",
+    "jszip": "^3.7.0",
     "local-time": "^2.1.0",
     "popper.js": "^1.16.0",
     "turbolinks": "^5.2.0"
